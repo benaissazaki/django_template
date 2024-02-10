@@ -2,7 +2,7 @@
 name = "django-template"
 version = "0.1.0"
 description = ""
-authors = ["lilxak <zakben45@gmail.com>"]
+authors = ["Zaki Benaissa <zakben45@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -11,6 +11,22 @@ Django = "^5.0.2"
 django-environ = "^0.11.2"
 
 
+[tool.poetry.group.dev.dependencies]
+pylint = "^3.0.3"
+autopep8 = "^2.0.4"
+pylint-django = "^2.5.5"
+bandit = "^1.7.7"
+poethepoet = "^0.24.4"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poe.tasks]
+start = "python -m manage runserver"
+test = "python -m manage test"
+lint = "pylint --recursive=y ."
+format = "autopep8 -r --in-place ."
+scan = "bandit -r ."
+makemigrations = "python -m manage makemigrations"
+migrate = "python -m manage migrate"
