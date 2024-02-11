@@ -18,10 +18,10 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env(
-    DEBUG=(bool,),
-    SECRET_KEY=(str,),
-    ALLOWED_HOSTS=(list,),
-    STATIC_ROOT=(str,)
+    DEBUG=bool,
+    SECRET_KEY=str,
+    ALLOWED_HOSTS=list,
+    STATIC_ROOT=str
 )
 
 env.read_env()
